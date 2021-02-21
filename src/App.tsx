@@ -10,13 +10,9 @@ const App = () => {
     const cellId = +event.currentTarget.id
 
     if (gameCells[cellId] === '') {
-      console.log(cellId)
-      setGameCells((prevGameCells) => [...prevGameCells, gameCells[cellId] = currentPlayer])
+      setGameCells((prevGameCells) => prevGameCells.map((val, index) => (index === cellId ? val = currentPlayer : val)))
       currentPlayer === "X" ? setCurrentPlayer("O") : setCurrentPlayer("X")
-      
-      console.log(gameCells)
     }
-    console.log(currentPlayer)
   }
 
   return (
