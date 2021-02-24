@@ -8,11 +8,20 @@ h3 {
 
 .game-cell {
   font-size: 3rem;
-  height: 100px;
+  height: 80px;
+  background-color: #e7eafc;
+}
+
+.game-cell:hover {
+  background-color: #d1d8df;
+}
+
+.win-field-cell {
+  background-color: #a1f0cb;
 }
 
 .winner-title {
-  color: darkgreen;
+  color: red;
 }
 
 .tie-title {
@@ -21,13 +30,13 @@ h3 {
 
 @-webkit-keyframes game-title {
   0% {
-    color: darkblue;
+    color: #2a2ab4;
   }
   25% {
-    color: blue;
+    color: #f04141;
   }
   50% {
-    color: #82639c;
+    color: #8b3892;
   }
   100% {
     color: #bb98f3;
@@ -36,13 +45,13 @@ h3 {
 
 @keyframes game-title {
   0% {
-    color: darkblue;
+    color: #2a2ab4;
   }
   25% {
-    color: blue;
+    color: #f04141;
   }
   50% {
-    color: #82639c;
+    color: #8b3892;
   }
   100% {
     color: #bb98f3;
@@ -50,7 +59,7 @@ h3 {
 }
 
 .game-title {
-  color: darkblue;
+  color: #2a2ab4;
   font-weight: bold;
   animation: game-title 3s linear 0s infinite alternate;
   -webkit-animation: game-title 3s linear 0s infinite alternate;

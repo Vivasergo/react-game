@@ -7,34 +7,44 @@ h3 {
 }
 .game-cell {
   font-size: 3rem;
-  height: 100px;
+  height: 80px;
+  background-color: rgb(231, 234, 252);
+}
+.game-cell:hover{
+  background-color:rgb(209, 216, 223);
+}
+.win-field-cell{
+  background-color: rgb(161, 240, 203);
 }
 .winner-title {
-  color: darkgreen;
+  color: red;
 }
 .tie-title {
   color: orange;
 }
 @keyframes game-title {
   0% {
-    color: darkblue;
+    color: rgb(42, 42, 180);
   }
   25% {
-    color: blue;
+    color: rgb(240, 65, 65);
   }
   50% {
-    color: rgb(130, 99, 156) ; 
+    color: rgb(139, 56, 146) ; 
   }
   100% {
     color: rgb(187, 152, 243);
   }
 }
 .game-title {
-  color: darkblue;
+  color: rgb(42, 42, 180);
   font-weight: bold;
   animation: game-title 3s linear 0s infinite alternate;
   -webkit-animation: game-title 3s linear 0s infinite alternate;
 }
+
+
+
 // .finLine::after{
 //   content: "";
 //   position: absolute;
