@@ -2,8 +2,57 @@ h3 {
   color: blue;
 }
 
+.game-field {
+  position: relative;
+}
+
 .game-cell {
   font-size: 3rem;
   height: 100px;
+}
+
+.winner-title {
+  color: darkgreen;
+}
+
+.tie-title {
+  color: orange;
+}
+
+@-webkit-keyframes game-title {
+  0% {
+    color: darkblue;
+  }
+  25% {
+    color: blue;
+  }
+  50% {
+    color: #82639c;
+  }
+  100% {
+    color: #bb98f3;
+  }
+}
+
+@keyframes game-title {
+  0% {
+    color: darkblue;
+  }
+  25% {
+    color: blue;
+  }
+  50% {
+    color: #82639c;
+  }
+  100% {
+    color: #bb98f3;
+  }
+}
+
+.game-title {
+  color: darkblue;
+  font-weight: bold;
+  animation: game-title 3s linear 0s infinite alternate;
+  -webkit-animation: game-title 3s linear 0s infinite alternate;
 }
 /*# sourceMappingURL=app.css.map */
