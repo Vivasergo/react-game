@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import classNames from "classnames"
 import { checkGameResults } from './Common/Logic/checkGameResults';
 import { isWinField, shuffleArray } from './Common/Utils/utils';
+import { ButtonsBlock } from './Components/Buttons/ButtonsBlock';
+import { Footer } from './Components/Footer/Footer';
+import { GameResultBlock } from './Components/GameResultBlock/GameResultBlock';
 
 
 const App = () => {
@@ -24,6 +26,20 @@ const App = () => {
 
   }, [gameCells])
 
+  useEffect(() => {
+
+    if (autoplay && (autoplayRandCells.length - 1) >= autoplayIndex && gameResult.player === "") {
+      setGameCells((prevGameCells) => prevGameCells.map((val, ind) => (ind === autoplayRandCells[autoplayIndex] ? val = currentPlayer : val)))
+      changePlayer()
+
+      setTimeout(() => {
+        setAutoplayIndex(++autoplayIndex)
+      }, 1000);
+    }
+    else {
+      setAutoplay(false)
+    }
+  }, [autoplay, autoplayIndex])
 
   const changePlayer = (): void => {
     currentPlayer === "X" ? setCurrentPlayer("O") : setCurrentPlayer("X")
@@ -48,52 +64,21 @@ const App = () => {
     setAutoplayRandCells([])
   }
 
-
-  useEffect(() => {
-
-    if (autoplay && (autoplayRandCells.length - 1) >= autoplayIndex && gameResult.player === "") {
-
-      setGameCells((prevGameCells) => prevGameCells.map((val, ind) => (ind === autoplayRandCells[autoplayIndex] ? val = currentPlayer : val)))
-      changePlayer()
-
-      setTimeout(() => {
-        setAutoplayIndex(++autoplayIndex)
-      }, 1000);
-
-    }
-    else {
-      setAutoplay(false)
-    }
-
-  }, [autoplay, autoplayIndex])
-
- 
-
   const startAutoplay = () => {
     startNewGame()
     setAutoplay(true)
-
     setAutoplayRandCells(shuffleArray([0, 1, 2, 3, 4, 5, 6, 7, 8]))
   }
 
 
-  const autoplayBtnCl = classNames("btn", "btn-outline-danger", "ms-3", {
-    "active": autoplay
-  })
-
-
   return (
-    <div className="main-block text-center px-3 pt-2">
+    <div className="main-block text-center pt-2 m-0">
       <header className="mb-4">
         <h3 className="game-title">React game: Tic Tac Toe</h3>
       </header>
 
       <div className="container game-field">
-        <div className="row my-3">
-          {gameResult.player === "" && <h4>Current turn: Player "{currentPlayer}"</h4>}
-          {(gameResult.player !== "" && gameResult.player !== "Tie") && <h4 className="winner-title fw-bold">The winner is: Player {gameResult.player}</h4>}
-          {gameResult.player === "Tie" && <h4 className="tie-title fw-bold">Tie this time !</h4>}
-        </div>
+        <GameResultBlock winner={gameResult.player} currentPlayer={currentPlayer} />
         <div className="row">
           <div className="col-1"></div>
 
@@ -117,13 +102,9 @@ const App = () => {
 
           <div className="col-1"></div>
         </div>
-        <div className="row my-3">
-          <div className="col">
-            <button onClick={startNewGame} type="button" className="btn btn-primary">New game</button>
-            <button onClick={startAutoplay} type="button" className={autoplayBtnCl}>Auto play</button>
-          </div>
-        </div>
+        <ButtonsBlock startNewGame={startNewGame} startAutoplay={startAutoplay} isAutoplay={autoplay} />
       </div>
+      <Footer />
     </div>
   );
 }
