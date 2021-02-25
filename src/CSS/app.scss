@@ -10,11 +10,8 @@ h3 {
   height: 80px;
   background-color: rgb(231, 234, 252);
 }
-.notWin:hover{
-  background-color:rgb(209, 216, 223);
-}
-.win-field-cell{
-  background-color: rgb(161, 240, 203);
+.notWin:hover {
+  background-color: rgb(209, 216, 223);
 }
 .winner-title {
   color: red;
@@ -22,6 +19,7 @@ h3 {
 .tie-title {
   color: orange;
 }
+
 @keyframes game-title {
   0% {
     color: rgb(42, 42, 180);
@@ -30,7 +28,7 @@ h3 {
     color: rgb(240, 65, 65);
   }
   50% {
-    color: rgb(139, 56, 146) ; 
+    color: rgb(139, 56, 146);
   }
   100% {
     color: rgb(187, 152, 243);
@@ -43,18 +41,21 @@ h3 {
   -webkit-animation: game-title 3s linear 0s infinite alternate;
 }
 
+@keyframes win-cells-animation {
+  0% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: rgb(161, 240, 203);
+  }
+}
 
-
-// .finLine::after{
-//   content: "";
-//   position: absolute;
-//   left: 0;
-//   top:0;
-//   height: 100%;
-//   border: 5px solid blue;
-//   border-radius: 10px;
-//   -webkit-border-radius: 10px;
-//   -moz-border-radius: 10px;
-//   -ms-border-radius: 10px;
-//   -o-border-radius: 10px;
-// }
+.win-field-cell {
+  background-color: #fff;
+  animation-name: win-cells-animation;
+  animation-duration: 0.07s;
+  animation-iteration-count: 8;
+  animation-direction: alternate-reverse;
+  animation-fill-mode: both;
+  animation-timing-function: ease;
+}
