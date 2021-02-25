@@ -1,6 +1,7 @@
-import React, { createRef, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from "classnames"
 import { checkGameResults } from './Common/Logic/checkGameResults';
+import { isWinField, shuffleArray } from './Common/Utils/utils';
 
 
 const App = () => {
@@ -14,6 +15,8 @@ const App = () => {
   let [gameCells, setGameCells] = useState(['', '', '', '', '', '', '', '', ''])
   let [gameResult, setGameResult] = useState<gameResultType>({ player: "", winFieldsArr: [] })
   let [autoplay, setAutoplay] = useState(false)
+  let [autoplayIndex, setAutoplayIndex] = useState(0)
+  let [autoplayRandCells, setAutoplayRandCells] = useState<Array<number>>([])
 
   useEffect(() => {
     let gameRes = checkGameResults(gameCells)
@@ -21,17 +24,17 @@ const App = () => {
 
   }, [gameCells])
 
-  // useEffect(() => {
 
-
-  // }, [autoplay])
+  const changePlayer = (): void => {
+    currentPlayer === "X" ? setCurrentPlayer("O") : setCurrentPlayer("X")
+  }
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     const cellId = +event.currentTarget.id
     if (gameResult.player === "") {
       if (gameCells[cellId] === '') {
         setGameCells((prevGameCells) => prevGameCells.map((val, index) => (index === cellId ? val = currentPlayer : val)))
-        currentPlayer === "X" ? setCurrentPlayer("O") : setCurrentPlayer("X")
+        changePlayer()
       }
     }
   }
@@ -41,64 +44,43 @@ const App = () => {
     setGameResult({ player: "", winFieldsArr: [] })
     setGameCells(['', '', '', '', '', '', '', '', ''])
     setAutoplay(false)
+    setAutoplayIndex(0)
+    setAutoplayRandCells([])
   }
 
 
- const changePlayer = (): void => {
-      currentPlayer === "X" ? setCurrentPlayer("O") : setCurrentPlayer("X")
-    }
-  
+  useEffect(() => {
 
+    if (autoplay && (autoplayRandCells.length - 1) >= autoplayIndex && gameResult.player === "") {
+
+      setGameCells((prevGameCells) => prevGameCells.map((val, ind) => (ind === autoplayRandCells[autoplayIndex] ? val = currentPlayer : val)))
+      changePlayer()
+
+      setTimeout(() => {
+        setAutoplayIndex(++autoplayIndex)
+      }, 1000);
+
+    }
+    else {
+      setAutoplay(false)
+    }
+
+  }, [autoplay, autoplayIndex])
+
+ 
 
   const startAutoplay = () => {
+    startNewGame()
     setAutoplay(true)
-    let tArr = [3, 5, 4]
 
-
-   // if (autoplay) {
-
-    const rotator = (tArr: Array<number>) => {
-
-      let iterator = (index: number, pl:string=currentPlayer) => {
-
-
-
-        if (index >= tArr.length) {
-          return;
-        }
-
-        setGameCells((prevGameCells) =>
-          prevGameCells.map((val, ind) => (ind === tArr[index] ? val = pl : val)))
-        changePlayer()
-        setTimeout(function () {
-         
-
-          iterator(++index);
-        }, 1000);
-      };
-
-      iterator(0, currentPlayer);
-    };
-
-    rotator(tArr)
-    //         setTimeout(() => {
-
-
-    // }, 1000);
-
-    // }
+    setAutoplayRandCells(shuffleArray([0, 1, 2, 3, 4, 5, 6, 7, 8]))
   }
+
 
   const autoplayBtnCl = classNames("btn", "btn-outline-danger", "ms-3", {
     "active": autoplay
   })
 
-  const isWinField = (winFieldsArr: Array<number>, cellId: number): boolean => {
-    if (winFieldsArr.some((val) => val === cellId) && winFieldsArr.length === 3) {
-      return true
-    }
-    else return false
-  }
 
   return (
     <div className="main-block text-center px-3 pt-2">
