@@ -12,7 +12,7 @@ h3 {
   background-color: #e7eafc;
 }
 
-.game-cell:hover {
+.notWin:hover {
   background-color: #d1d8df;
 }
 

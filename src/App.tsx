@@ -57,19 +57,19 @@ const App = () => {
 
           <div className="col">
             <div className="row">
-              <div onClick={handleClick} id={"0"} className={gameResult.winFieldsArr.some((val) => val === 0) && gameResult.winFieldsArr.length === 3 ? "col game-cell win-field-cell" : "col game-cell"}>{gameCells[0]}</div>
-              <div onClick={handleClick} id={"1"} className={gameResult.winFieldsArr.some((val) => val === 1) && gameResult.winFieldsArr.length === 3 ? "col game-cell border border-3 border-dark border-bottom-0 border-top-0 win-field-cell" : "col game-cell border border-3 border-dark border-bottom-0 border-top-0"}>{gameCells[1]}</div>
-              <div onClick={handleClick} id={"2"} className={gameResult.winFieldsArr.some((val) => val === 2) && gameResult.winFieldsArr.length === 3 ? "col game-cell win-field-cell" : "col game-cell"}>{gameCells[2]}</div>
+              <div onClick={handleClick} id={"0"} className={gameResult.winFieldsArr.some((val) => val === 0) && gameResult.winFieldsArr.length === 3 ? "col game-cell win-field-cell" : "col game-cell notWin"}>{gameCells[0]}</div>
+              <div onClick={handleClick} id={"1"} className={gameResult.winFieldsArr.some((val) => val === 1) && gameResult.winFieldsArr.length === 3 ? "col game-cell border border-3 border-dark border-bottom-0 border-top-0 win-field-cell" : "col game-cell border border-3 border-dark border-bottom-0 border-top-0 notWin"}>{gameCells[1]}</div>
+              <div onClick={handleClick} id={"2"} className={gameResult.winFieldsArr.some((val) => val === 2) && gameResult.winFieldsArr.length === 3 ? "col game-cell win-field-cell" : "col game-cell notWin"}>{gameCells[2]}</div>
             </div>
             <div className="row border border-3 border-dark border-start-0 border-end-0">
-              <div onClick={handleClick} id={"3"} className={gameResult.winFieldsArr.some((val) => val === 3) && gameResult.winFieldsArr.length === 3 ? "col game-cell win-field-cell" : "col game-cell"} >{gameCells[3]}</div>
-              <div onClick={handleClick} id={"4"} className={gameResult.winFieldsArr.some((val) => val === 4) && gameResult.winFieldsArr.length === 3 ? "col game-cell border border-3 border-dark border-bottom-0 border-top-0 win-field-cell" : "col game-cell border border-3 border-dark border-bottom-0 border-top-0"}>{gameCells[4]}</div>
-              <div onClick={handleClick} id={"5"} className={gameResult.winFieldsArr.some((val) => val === 5) && gameResult.winFieldsArr.length === 3 ? "col game-cell win-field-cell" : "col game-cell"} >{gameCells[5]}</div>
+              <div onClick={handleClick} id={"3"} className={gameResult.winFieldsArr.some((val) => val === 3) && gameResult.winFieldsArr.length === 3 ? "col game-cell win-field-cell" : "col game-cell notWin"} >{gameCells[3]}</div>
+              <div onClick={handleClick} id={"4"} className={gameResult.winFieldsArr.some((val) => val === 4) && gameResult.winFieldsArr.length === 3 ? "col game-cell border border-3 border-dark border-bottom-0 border-top-0 win-field-cell" : "col game-cell border border-3 border-dark border-bottom-0 border-top-0 notWin"}>{gameCells[4]}</div>
+              <div onClick={handleClick} id={"5"} className={gameResult.winFieldsArr.some((val) => val === 5) && gameResult.winFieldsArr.length === 3 ? "col game-cell win-field-cell" : "col game-cell notWin"} >{gameCells[5]}</div>
             </div>
             <div className="row">
-              <div onClick={handleClick} id={"6"} className={gameResult.winFieldsArr.some((val) => val === 6) && gameResult.winFieldsArr.length === 3 ? "col game-cell win-field-cell" : "col game-cell"} >{gameCells[6]}</div>
-              <div onClick={handleClick} id={"7"} className={gameResult.winFieldsArr.some((val) => val === 7) && gameResult.winFieldsArr.length === 3 ? "col game-cell border border-3 border-dark border-bottom-0 border-top-0 win-field-cell" : "col game-cell border border-3 border-dark border-bottom-0 border-top-0"}>{gameCells[7]}</div>
-              <div onClick={handleClick} id={"8"} className={gameResult.winFieldsArr.some((val) => val === 8) && gameResult.winFieldsArr.length === 3 ? "col game-cell win-field-cell" : "col game-cell"} >{gameCells[8]}</div>
+              <div onClick={handleClick} id={"6"} className={gameResult.winFieldsArr.some((val) => val === 6) && gameResult.winFieldsArr.length === 3 ? "col game-cell win-field-cell" : "col game-cell notWin"} >{gameCells[6]}</div>
+              <div onClick={handleClick} id={"7"} className={gameResult.winFieldsArr.some((val) => val === 7) && gameResult.winFieldsArr.length === 3 ? "col game-cell border border-3 border-dark border-bottom-0 border-top-0 win-field-cell" : "col game-cell border border-3 border-dark border-bottom-0 border-top-0 notWin"}>{gameCells[7]}</div>
+              <div onClick={handleClick} id={"8"} className={gameResult.winFieldsArr.some((val) => val === 8) && gameResult.winFieldsArr.length === 3 ? "col game-cell win-field-cell" : "col game-cell notWin"} >{gameCells[8]}</div>
             </div>
           </div>
 
