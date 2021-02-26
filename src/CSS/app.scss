@@ -1,0 +1,64 @@
+body{
+  background-image: url("../Img/bg.jpg");
+}
+h3 {
+  color: blue;
+}
+
+.game-field {
+  position: relative;
+}
+.game-cell {
+  font-size: 3rem;
+  height: 80px;
+  background-color: rgb(231, 234, 252);
+}
+.notWin:hover {
+  background-color: rgb(209, 216, 223);
+}
+.winner-title {
+  color: red;
+}
+.tie-title {
+  color: orange;
+}
+
+@keyframes game-title {
+  0% {
+    color: rgb(42, 42, 180);
+  }
+  25% {
+    color: rgb(240, 65, 65);
+  }
+  50% {
+    color: rgb(139, 56, 146);
+  }
+  100% {
+    color: rgb(187, 152, 243);
+  }
+}
+.game-title {
+  color: rgb(42, 42, 180);
+  font-weight: bold;
+  animation: game-title 3s linear 0s infinite alternate;
+  -webkit-animation: game-title 3s linear 0s infinite alternate;
+}
+
+@keyframes win-cells-animation {
+  0% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: rgb(161, 240, 203);
+  }
+}
+
+.win-field-cell {
+  background-color: #fff;
+  animation-name: win-cells-animation;
+  animation-duration: 0.07s;
+  animation-iteration-count: 8;
+  animation-direction: alternate-reverse;
+  animation-fill-mode: both;
+  animation-timing-function: ease;
+}

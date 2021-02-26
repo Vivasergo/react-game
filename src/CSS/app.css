@@ -1,0 +1,96 @@
+h3 {
+  color: blue;
+}
+
+.game-field {
+  position: relative;
+}
+
+.game-cell {
+  font-size: 3rem;
+  height: 80px;
+  background-color: #e7eafc;
+}
+
+.notWin:hover {
+  background-color: #d1d8df;
+}
+
+.winner-title {
+  color: red;
+}
+
+.tie-title {
+  color: orange;
+}
+
+@-webkit-keyframes game-title {
+  0% {
+    color: #2a2ab4;
+  }
+  25% {
+    color: #f04141;
+  }
+  50% {
+    color: #8b3892;
+  }
+  100% {
+    color: #bb98f3;
+  }
+}
+
+@keyframes game-title {
+  0% {
+    color: #2a2ab4;
+  }
+  25% {
+    color: #f04141;
+  }
+  50% {
+    color: #8b3892;
+  }
+  100% {
+    color: #bb98f3;
+  }
+}
+
+.game-title {
+  color: #2a2ab4;
+  font-weight: bold;
+  animation: game-title 3s linear 0s infinite alternate;
+  -webkit-animation: game-title 3s linear 0s infinite alternate;
+}
+
+@-webkit-keyframes win-cells-animation {
+  0% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: #a1f0cb;
+  }
+}
+
+@keyframes win-cells-animation {
+  0% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: #a1f0cb;
+  }
+}
+
+.win-field-cell {
+  background-color: #fff;
+  -webkit-animation-name: win-cells-animation;
+          animation-name: win-cells-animation;
+  -webkit-animation-duration: 0.07s;
+          animation-duration: 0.07s;
+  -webkit-animation-iteration-count: 8;
+          animation-iteration-count: 8;
+  animation-direction: alternate-reverse;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+}
+/*# sourceMappingURL=app.css.map */
