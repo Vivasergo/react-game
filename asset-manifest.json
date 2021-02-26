@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-game/static/css/main.05f8cd44.chunk.css",
+    "main.js": "/react-game/static/js/main.b3ae60fc.chunk.js",
+    "main.js.map": "/react-game/static/js/main.b3ae60fc.chunk.js.map",
+    "runtime-main.js": "/react-game/static/js/runtime-main.91ff56e8.js",
+    "runtime-main.js.map": "/react-game/static/js/runtime-main.91ff56e8.js.map",
+    "static/js/2.b16366b1.chunk.js": "/react-game/static/js/2.b16366b1.chunk.js",
+    "static/js/2.b16366b1.chunk.js.map": "/react-game/static/js/2.b16366b1.chunk.js.map",
+    "static/js/3.3eb54fef.chunk.js": "/react-game/static/js/3.3eb54fef.chunk.js",
+    "static/js/3.3eb54fef.chunk.js.map": "/react-game/static/js/3.3eb54fef.chunk.js.map",
+    "index.html": "/react-game/index.html",
+    "static/css/main.05f8cd44.chunk.css.map": "/react-game/static/css/main.05f8cd44.chunk.css.map",
+    "static/js/2.b16366b1.chunk.js.LICENSE.txt": "/react-game/static/js/2.b16366b1.chunk.js.LICENSE.txt",
+    "static/media/rs_school_js.1766f2cf.png": "/react-game/static/media/rs_school_js.1766f2cf.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.91ff56e8.js",
+    "static/js/2.b16366b1.chunk.js",
+    "static/css/main.05f8cd44.chunk.css",
+    "static/js/main.b3ae60fc.chunk.js"
+  ]
+}
