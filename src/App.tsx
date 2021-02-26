@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { checkGameResults } from './Common/Logic/checkGameResults';
 import { isWinField, shuffleArray } from './Common/Utils/utils';
-import { ButtonsBlock } from './Components/Buttons/ButtonsBlock';
-import { Footer } from './Components/Footer/Footer';
-import { GameResultBlock } from './Components/GameResultBlock/GameResultBlock';
+import { ButtonsBlock } from './components/Buttons/ButtonsBlock';
+import { Footer } from './components/Footer/Footer';
+import { GameResultBlock } from './components/GameResultBlock/GameResultBlock';
+
 
 
 const App = () => {
@@ -26,6 +27,11 @@ const App = () => {
 
   }, [gameCells])
 
+  //logic of autoplay mode: using useEffect and 2 dependencies to emulate recursive call 
+  // (first fire of useEffect invoked by changing autoplay local state to true, then adding to state gameCell current player action,
+  // and changing player. Next by autoplayindex local state increment triggering useEffect and affecting next turn,
+  // loop breaking condition is appearing the winner or the tie condition in gameResult local state).
+  //The timer function slowing down the actions
   useEffect(() => {
 
     if (autoplay && (autoplayRandCells.length - 1) >= autoplayIndex && gameResult.player === "") {
